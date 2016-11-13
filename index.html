@@ -4,11 +4,23 @@
     <meta charset="utf-8">
     <title>SPEAKUP</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script src="handlebars.js"></script>
+    <script src="config.js"></script>
+    <script src="index.js"></script>
   </head>
   <body>
-    <form action='' method=''>
-    </form>
-    <script src="index.js"></script>
-    <script src="config.js"></script>
+      <div id="search">
+        <h2>Contact Your Representatives</h2>
+        <form>
+          Locate representatives by address: <input type="text" name="search" id="address">
+          <input type="submit" onclick="representativesAdapter()">
+        </form>
+      </div>
+      <h2>Results</h2>
+      <div id="results"></div>
+      <script id="results-template" type="text/x-handlebars-template">
+        {{#each items }}
+        {{/each}}
+      </script>
   </body>
 </html>
