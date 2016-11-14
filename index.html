@@ -16,16 +16,25 @@
   <body>
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h1>SpeakUp</h1>
+          <h1 class="topSpaceM">SpeakUp</h1>
+          <h3>Find your representatives and let them know where you stand</h3>
         </div>
       </div>
-      <div id="search">
-        <form>
-          Locate representatives by address: <input type="text" name="search" id="address">
-          <input type="submit" onclick="representativesAdapter()">
-        </form>
+
+      <div class="row">
+        <div class="col-lg-12 text-center topSpaceM" id="search">
+          <form class="form-inline" action="#">
+            <div class="form-group">
+              <label for="address">Enter your address: </label>
+              <input type="text" name="search" id="address">
+            </div>
+            <br>
+            <br>
+            <input class="btn btn-primary btn-lg col-lg-6 col-lg-offset-3" type="submit" value="Search" onclick="representativesAdapter()">
+          </form>
+        </div>
       </div>
-      <div id = "errors"></div>
+
       <h2>Results</h2>
       <div id="results"></div>
       <script id="results-template" type="text/x-handlebars-template">
