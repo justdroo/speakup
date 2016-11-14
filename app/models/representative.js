@@ -8,6 +8,7 @@ class Representative {
     this.email = email
     this.phone = phone
     this.photo = photo
+    this.issues = {}
     store = [...store, this]
   }
 }
