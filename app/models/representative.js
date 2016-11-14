@@ -5,11 +5,11 @@ class Representative {
     this.name = name
     this.title = title
     this.party = party
-    this.email = email
-    this.phone = phone
-    this.photo = photo
+    this.email = email || ["No email listed"]
+    this.phone = phone || ["No phone numbers listed"]
+    this.photo = photo || "public/images/default.jpg"
     this.issues = {}
-    // store = [...store, this] || [this]
+    store.push(this)
   }
 }
 
@@ -22,7 +22,10 @@ function createRepresentative(office, official){
      if (twitter.length > 0) {
        rep.twitter = twitter[0].id
      }
+     else {
+       rep.twitter = "No Twitter listed"
+     }
    }
-   
+
    return rep
 }

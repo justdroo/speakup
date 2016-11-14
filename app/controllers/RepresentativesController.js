@@ -44,11 +44,11 @@ function displayRepresentatives(response) {
       </div>
 
       <div class="col-lg-1">
-        <p> Phone: </p>
+        <p> Phone:<br>${rep.phone.join("<br>")}</p>
       </div>
 
       <div class="col-lg-1">
-        <p> Emails: ${rep.email}</p>
+        <p> Emails:<br>${rep.email.join("<br>")}</p>
       </div>
 
       <div class="col-lg-1">
