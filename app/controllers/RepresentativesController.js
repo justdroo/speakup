@@ -7,20 +7,12 @@ function representativesAdapter(){
   return $.ajax({
     method: "GET",
     url: searchURL
-  }).done(function(response) {
-    displayRepresentatives(response)
-    // const template = Handlebars.compile($('#results-template').html())
-    // const offices = response.offices
-    // template(response)
-  }).done(function(){
-    formSetup();
-  })
+  }).done(parseRepresentatives, formSetup)
 }
 
-function displayRepresentatives(response) {
+function parseRepresentatives(response) {
   const repList = []
-  $('#results').empty()
-  
+
   response.offices.map(office => {
     const index = office.officialIndices
     if (index.length > 1) {
@@ -31,7 +23,11 @@ function displayRepresentatives(response) {
       repList.push(createRepresentative(office, response.officials[index]))
     }
   })
-  const display = repList.map(function(rep) {
+  renderPage(repList)
+}
+
+function renderPage(repList) {
+  $('#results').empty().append(repList.map(function(rep) {
     return `<div class="row">
       <div class="col-lg-2">
         <img src=${rep.photo} class="img-responsive">
@@ -75,12 +71,6 @@ function displayRepresentatives(response) {
 
         </form>
       </div>
-
     </div>`
-  }).join(" ")
-  $("#results").append(display)
+  }).join(" "))
 }
-
-// function displayError() {
-//   $('#errors').html("I'm sorry, there's been an error. Please try again.")
-// }
