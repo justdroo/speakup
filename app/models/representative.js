@@ -9,7 +9,7 @@ class Representative {
     this.phone = phone
     this.photo = photo
     this.issues = {}
-    store = [...store, this]
+    // store = [...store, this] || [this]
   }
 }
 

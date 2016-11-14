@@ -34,7 +34,7 @@ function displayRepresentatives(response) {
       <td>${rep.party}</td>
       </tr>
       <tr>
-      <td>Phones: ${rep.phone.join(", ")}</td>
+      <td>Phones: </td>
       <td>Emails: ${rep.email}</td>
       <td>Twitter: ${rep.twitter}</td>
       </tr>`
