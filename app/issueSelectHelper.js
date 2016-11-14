@@ -15,7 +15,7 @@ function formSetup(){
 
   function appendIssuesSelect(issuesSelectFormat){
     let formatted = issuesSelectFormat()
-    let selector = $('#issues')
+    let selector = $('[name="issues"]')
     formatted.forEach(function(issueOption) {
       selector.append(issueOption)
     })
@@ -27,6 +27,6 @@ function formSetup(){
 
 } //end formSetup
 
-$(function() {
-  formSetup();
-})
+// $(function() {
+//   formSetup();
+// })

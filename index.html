@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
 
     <script src="config.js"></script>
+    <script src="app/issueSelectHelper.js" charset="utf-8"></script>
+    <script src="app/models/message.js" charset="utf-8"></script>
     <script src="app/controllers/RepresentativesController.js"></script>
     <script src="app/models/representative.js"></script>
     <script src="index.js"></script>
@@ -36,8 +38,10 @@
         </div>
       </div>
 
-      <h2>Results</h2>
-      <div id="results"></div>
+
+      <div id="results">
+
+      </div>
       <script id="results-template" type="text/x-handlebars-template">
         <ul>
           {{#each office}}

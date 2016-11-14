@@ -1,6 +1,6 @@
 //SHOULD BE STORED AS A SERVICE OBJECT
 
-function tweetCompilier(rep, issue, stance){
+function tweetCompiler(rep, issue, stance){
   //should take in a rep, an issue and a stance and return a link tag to send a tweet
   let position = ""
   if (stance === true) {

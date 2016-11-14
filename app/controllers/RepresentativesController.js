@@ -12,6 +12,8 @@ function representativesAdapter(){
     // const template = Handlebars.compile($('#results-template').html())
     // const offices = response.offices
     // template(response)
+  }).done(function(){
+    formSetup();
   })
 }
 
@@ -28,18 +30,56 @@ function displayRepresentatives(response) {
     }
   })
   const display = repList.map(function(rep) {
-    return `<tr>
-      <td><img src=${rep.photo} width="128"></td>
-      <td>${rep.name} - ${rep.title}</td>
-      <td>${rep.party}</td>
-      </tr>
-      <tr>
-      <td>Phones: </td>
-      <td>Emails: ${rep.email}</td>
-      <td>Twitter: ${rep.twitter}</td>
-      </tr>`
+    return `<div class="row">
+      <div class="col-lg-2">
+        <img src=${rep.photo} class="img-responsive">
+      </div>
+
+      <div class="col-lg-2">
+        <h4>${rep.name} - ${rep.title}</h4>
+      </div>
+
+      <div class="col-lg-1">
+        <p>${rep.party}</p>
+      </div>
+
+      <div class="col-lg-1">
+        <p> Phone: </p>
+      </div>
+
+      <div class="col-lg-1">
+        <p> Emails: ${rep.email}</p>
+      </div>
+
+      <div class="col-lg-1">
+        <p>Twitter: ${rep.twitter}</p>
+      </div>
+
+      <div class="col-lg-3">
+        <form action="#" data-id="${rep.twitter}">
+
+          <div class="form-group">
+            <select name="issues">
+              <option value="0">Select Issue</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <select>
+              <option value="0">Select Stance</option>
+              <option value="pro">Pro</option>
+              <option value="against">Against</option>
+            </select>
+          </div>
+
+          <input type="submit" value="Submit">
+
+        </form>
+      </div>
+
+    </div>`
   }).join(" ")
-  $("#results").html("<tbody>" + display + "</tbody>")
+  $("#results").append(display)
 }
 
 // function displayError() {
