@@ -42,6 +42,6 @@ function displayRepresentatives(response) {
   $("#results").html("<tbody>" + display + "</tbody>")
 }
 
-function displayError() {
-  $('#errors').html("I'm sorry, there's been an error. Please try again.")
-}
+// function displayError() {
+//   $('#errors').html("I'm sorry, there's been an error. Please try again.")
+// }

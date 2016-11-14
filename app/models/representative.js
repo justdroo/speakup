@@ -8,7 +8,7 @@ class Representative {
     this.email = email
     this.phone = phone
     this.photo = photo
-    store.push(this)
+    store = [...store, this]
   }
 }
 
