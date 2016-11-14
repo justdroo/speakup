@@ -10,6 +10,9 @@ label {
 .leftSpaceM {
   padding-left: .83em;
 }
+.rightSpaceM {
+  padding-right: .83em;
+}
 .topSpaceL {
   padding-top: 1.3em;
 }

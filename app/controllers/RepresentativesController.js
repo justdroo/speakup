@@ -19,6 +19,8 @@ function representativesAdapter(){
 
 function displayRepresentatives(response) {
   const repList = []
+  $('#results').empty()
+  
   response.offices.map(office => {
     const index = office.officialIndices
     if (index.length > 1) {
@@ -36,26 +38,23 @@ function displayRepresentatives(response) {
       </div>
 
       <div class="col-lg-2">
-        <h4>${rep.name} - ${rep.title}</h4>
-      </div>
-
-      <div class="col-lg-1">
+        <h4>${rep.name}</h4> <h4>${rep.title}</h4>
         <p>${rep.party}</p>
       </div>
 
-      <div class="col-lg-1">
+      <div class="col-lg-2 rightSpaceM">
         <p> Phone:<br>${rep.phone.join("<br>")}</p>
       </div>
 
-      <div class="col-lg-1">
+      <div class="col-lg-2">
         <p> Emails:<br>${rep.email.join("<br>")}</p>
       </div>
 
       <div class="col-lg-1">
-        <p>Twitter: ${rep.twitter}</p>
+        <p>Twitter: <a href="https://twitter.com/${rep.twitter}" target="_blank">@${rep.twitter}</a></p>
       </div>
 
-      <div class="col-lg-3">
+      <div class="col-lg-2">
         <form action="#" data-id="${rep.twitter}">
 
           <div class="form-group">

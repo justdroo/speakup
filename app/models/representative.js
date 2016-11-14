@@ -1,4 +1,4 @@
-const store = []
+const store = {representatives: [], users:[]}
 
 class Representative {
   constructor(name, title, party, email, phone, photo) {
@@ -8,8 +8,8 @@ class Representative {
     this.email = email || ["No email listed"]
     this.phone = phone || ["No phone numbers listed"]
     this.photo = photo || "public/images/default.jpg"
-    this.issues = {}
-    store.push(this)
+    // this.issues = {pro: [], against: []}
+    store.representatives.push(this)
   }
 }
 
