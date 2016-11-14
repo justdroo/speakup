@@ -39,25 +39,18 @@ function renderPage(repList) {
       </div>
 
       <div class="col-lg-2 rightSpaceM">
-        <p> Phone:<br>${rep.phone.join("<br>")}</p>
+        <p>Phone:<br>${rep.phone.join("<br>")}</p>
       </div>
 
       <div class="col-lg-2">
-        <p> Emails:<br>${rep.email.join("<br>")}</p>
+        <p>Email:<br>${rep.email.join("<br>")}</p>
       </div>
 
-      <div class="col-lg-1">
-        <p>Twitter: <a href="https://twitter.com/${rep.twitter}" target="_blank">@${rep.twitter}</a></p>
+      <div class="col-lg-1" id="twitter">
       </div>
 
-      <div class="col-lg-2">
-        <form action="#" data-id="${rep.twitter}">
-
-          <div class="form-group">
-            <select name="issues">
-              <option value="0">Select Issue</option>
-            </select>
-          </div>
+      <div class="col-lg-2" id="twitterForm">
+      </div>
 
           <div class="form-group">
             <select>
@@ -73,4 +66,20 @@ function renderPage(repList) {
       </div>
     </div>`
   }).join(" "))
+}
+
+function twitterDisplay(repList) {
+  repList.map(function(rep) {
+    if (rep.twitter === "No Twitter listed") {
+      $('#twitter').html('<p>Twitter:<br>${rep.twitter}</p>')
+      $('#twitterForm').html('')
+    } else {
+      $('#twitter').html(`<p>Twitter: <a href="https://twitter.com/${rep.twitter}" target="_blank">@${rep.twitter}</a></p>`)
+      $('#twitterForm').html(`<form action="#" data-id="${rep.twitter}">
+        <div class="form-group">
+          <select name="issues">
+            <option value="0">Select Issue</option>
+          </select>`)
+    }
+  })
 }
