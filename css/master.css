@@ -1,0 +1,23 @@
+h1 {
+  font-family: 'Shrikhand', cursive;
+  font-size: 8em;
+}
+
+label {
+  font-size: 1.3em;
+}
+
+.leftSpaceM {
+  padding-left: .83em;
+}
+.topSpaceL {
+  padding-top: 1.3em;
+}
+
+.topSpaceM {
+  padding-top: .833em;
+}
+
+.bottomSpaceM {
+  padding-bottom: .833em;
+}
