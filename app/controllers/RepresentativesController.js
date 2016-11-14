@@ -2,6 +2,7 @@ const rootURL = "https://www.googleapis.com/civicinfo/v2/representatives?address
 
 function representativesAdapter(){
   const address = $("#address").val().split(" ").join("+")
+  new Citizen(address)
   const searchURL = rootURL + address + "&key=" + APIKey
   event.preventDefault()
   return $.ajax({
@@ -14,6 +15,11 @@ function representativesAdapter(){
     // template(response)
   }).done(function(){
     formSetup();
+  }).done(function(){
+    $('.contact').on('submit', function(){
+    event.preventDefault()
+    initiateMessage(this)
+  })
   })
 }
 
@@ -54,8 +60,8 @@ function displayRepresentatives(response) {
         <p>Twitter: <a href="https://twitter.com/${rep.twitter}" target="_blank">@${rep.twitter}</a></p>
       </div>
 
-      <div class="col-lg-2">
-        <form action="#" data-id="${rep.twitter}">
+      <div id ="${rep.id}" class="col-lg-2">
+        <form class='contact' action="#" data-id="${rep.id}">
 
           <div class="form-group">
             <select name="issues">
@@ -64,7 +70,7 @@ function displayRepresentatives(response) {
           </div>
 
           <div class="form-group">
-            <select>
+            <select name="stance">
               <option value="0">Select Stance</option>
               <option value="pro">Pro</option>
               <option value="against">Against</option>
