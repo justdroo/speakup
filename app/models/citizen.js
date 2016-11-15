@@ -22,8 +22,9 @@ function initiateMessage(htmlElement){
 	let rep = repArray[0]
 	let issue = $(`#${rep.id} [name=issues]`).val()
 	let stance = $(`#${rep.id} [name=stance]`).val()
+	let method = $(`#${rep.id} [name=method]`).val()
 	citizen.issues[issue] = stance
-	let message = new Message(citizen, rep, issue)
+	let message = new Message(citizen, rep, issue, method)
 	message.stance = stance
 	showMessageOptions(message)
 }

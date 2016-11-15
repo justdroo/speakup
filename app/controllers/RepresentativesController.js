@@ -73,6 +73,14 @@ function renderPage(repList) {
             </select>
           </div>
 
+          <div class="form-group">
+            <select name="method">
+              <option value="0">Select Tweet or Email</option>
+              <option value="tweet">Tweet Them!</option>
+              <option value="email">Email Them!</option>
+            </select>
+          </div>
+
           <input type="submit" value="Submit">
 
         </form>

@@ -1,9 +1,9 @@
 class Message{
-  constructor(citizen, rep, issue){
+  constructor(citizen, rep, issue, method){
     this.citizen = citizen,
     this.rep = rep,
     this.issue = issue,
-    this.method = "tweet"
+    this.method = method,
     store.messages = [...store.messages, this]
     activate(this)
   }
