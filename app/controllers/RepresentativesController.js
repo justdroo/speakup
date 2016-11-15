@@ -10,6 +10,8 @@ function representativesAdapter(){
     method: "GET",
     url: searchURL
   }).done(parseRepresentatives, formSetup).done(function(){
+    $('#results').hide().slideDown(2000)
+  }).done(function(){
     $('.contact').on('submit', function(){
     event.preventDefault()
     initiateMessage(this)
@@ -37,29 +39,33 @@ function parseRepresentatives(response) {
 
 function renderPage(repList) {
   $('#results').empty().append(repList.map(function(rep) {
-    return `<div class="row">
-      <div class="col-lg-2">
-        <img src=${rep.photo} class="img-responsive">
+    return `<div class="row rowFormat darkBox">
+      <div class="col-lg-2 col-md-6 col-sm-6">
+        <img src=${rep.photo} class="img-responsive img-rounded">
       </div>
 
-      <div class="col-lg-2">
-        <h4>${rep.name}</h4> <h4>${rep.title}</h4>
+      <div class="col-lg-2 col-md-6 col-sm-6">
+        <h4>${rep.title}</h4>
+        <h3>${rep.name}</h3>
         <p>${rep.party}</p>
       </div>
 
       <div class="col-lg-2 rightSpaceM">
-        <p> Phone:<br>${rep.phone.join("<br>")}</p>
+         <h4>Phone:<h4>
+         <p>${rep.phone.join("<br>")}</p>
       </div>
 
       <div class="col-lg-2">
-        <p> Emails:<br>${rep.email.join("<br>")}</p>
+         <h4>Emails:</h4>
+        <p>${rep.email.join("<br>")}</p>
       </div>
 
       <div class="col-lg-1">
-        <p>Twitter: <a href="https://twitter.com/${rep.twitter}" target="_blank">@${rep.twitter}</a></p>
+        <h4>Twitter:</h4>
+        <p><a href="https://twitter.com/${rep.twitter}" target="_blank" class="twitter">@${rep.twitter}</a></p>
       </div>
 
-      <div id ="${rep.id}" class="col-lg-2">
+      <div id ="${rep.id}" class="col-lg-2 leftSpaceL text-right">
         <form class='contact' action="#" data-id="${rep.id}">
 
           <div class="form-group">
@@ -84,7 +90,7 @@ function renderPage(repList) {
             </select>
           </div>
 
-          <input type="submit" value="Submit">
+          <input type="submit" value="Submit" class="btn btn-success">
 
         </form>
       </div>

@@ -7,8 +7,29 @@ label {
   font-size: 1.3em;
 }
 
+.twitter {
+  font-weight:bold;
+  color: rgba(163, 226, 255, 1);
+}
+
+.rowFormat {
+  padding: 1.3em;
+  border-bottom: .1em groove white;
+  margin-right:1.3em;
+  margin-left: 1.3em;
+  margin-top: .3em;
+}
+
+.form-group {
+  color:black;
+}
+
 .leftSpaceM {
   padding-left: .83em;
+}
+
+.leftSpaceL {
+  padding-left: 2em;
 }
 .rightSpaceM {
   padding-right: .83em;
@@ -21,6 +42,23 @@ label {
   padding-top: .833em;
 }
 
+.topSpaceS {
+  padding-top: .3em;
+}
+
 .bottomSpaceM {
   padding-bottom: .833em;
+}
+
+.doubleTop {
+  border-top: thick double black;
+}
+
+.darkBox {
+  background-color: rgba(69, 67, 86, 0.75);
+  color:white;
+}
+
+.darkerBox {
+  background-color:black;
 }
