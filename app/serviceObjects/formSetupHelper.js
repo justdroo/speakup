@@ -1,6 +1,3 @@
-rep1 = {handle: "@justdroo"}
-issue1 = "Gay Marriage"
-
 function formSetup(){
 
   function issuesSelectFormat() {
