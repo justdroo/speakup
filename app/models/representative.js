@@ -1,17 +1,22 @@
-const store = {representatives: [], users:[]}
+const store = {representatives: [], citizens:[], messages: []}
 
-class Representative {
-  constructor(name, title, party, email, phone, photo) {
-    this.name = name
-    this.title = title
-    this.party = party
-    this.email = email || ["No email listed"]
-    this.phone = phone || ["No phone numbers listed"]
-    this.photo = photo || "public/images/default.jpg"
-    // this.issues = {pro: [], against: []}
-    store.representatives.push(this)
+const Representative = function(){
+  let id = 0
+
+  return class Representative {
+    constructor(name, title, party, email, phone, photo) {
+      this.id = ++id
+      this.name = name
+      this.title = title
+      this.party = party
+      this.email = email || ["No email listed"]
+      this.phone = phone || ["No phone numbers listed"]
+      this.photo = photo || "public/images/default.jpg"
+      this.issues = []
+      store.representatives.push(this)
+    }
   }
-}
+}()
 
 function createRepresentative(office, official){
   const rep = new Representative(official.name, office.name, official.party, official.emails,
