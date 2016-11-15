@@ -1,4 +1,4 @@
-const store = {representatives: [], citizens:[], messages: []}
+const store = {representatives: [], citizens:[], messages: [], issues: {}}
 
 const Representative = function(){
   let id = 0
