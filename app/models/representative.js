@@ -12,7 +12,7 @@ const Representative = function(){
       this.email = email || ["No email listed"]
       this.phone = phone || ["No phone numbers listed"]
       this.photo = photo || "public/images/default.jpg"
-      this.issues = []
+      this.issues = {}
       store.representatives.push(this)
     }
   }

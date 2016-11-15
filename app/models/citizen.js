@@ -14,22 +14,3 @@ return class Citizen{
 
 
 
-
-function initiateMessage(htmlElement){
-	
-	let citizen = store.citizens[store.citizens.length-1]
-	let repArray = $.grep(store.representatives, function(e){ return e.id === parseInt(htmlElement.dataset.id); });
-	let rep = repArray[0]
-	let issue = $(`#${rep.id} [name=issues]`).val()
-	let stance = $(`#${rep.id} [name=stance]`).val()
-	let method = $(`#${rep.id} [name=method]`).val()
-	citizen.issues[issue] = stance
-	let message = new Message(citizen, rep, issue, method)
-	message.stance = stance
-	showMessageOptions(message)
-}
-
-function showMessageOptions(message){
-	// div id = message.rep.id
-	
-}

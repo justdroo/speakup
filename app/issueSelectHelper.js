@@ -4,7 +4,7 @@ issue1 = "Gay Marriage"
 function formSetup(){
 
   function issuesSelectFormat() {
-    let issues = ["Gay Marriage", "Gun Control", "Abortion", "Education", "Free Ice Cream", "Lil' Bub 4 Prez"]
+    let issues = ["Gay Marriage", "Gun Control", "Abortion", "Environment", "Free Ice Cream", "Lil' Bub 4 Prez"]
 
     let formatted = issues.map(function(issue, index){
       return `<option value ="${issue}"> ${issue}</option>`
