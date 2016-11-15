@@ -1,5 +1,5 @@
 function initiateMessage(htmlElement){
-	
+
 	let citizen = store.citizens[store.citizens.length-1]
 	let repArray = $.grep(store.representatives, function(e){ return e.id === parseInt(htmlElement.dataset.id); });
 	let rep = repArray[0]
@@ -17,6 +17,10 @@ function activate(message){
 
     switch (message.method) {
       case 'email':
+			if (message.rep.email == "No email listed") {
+				alert("Sorry! This representative doesn't have an email!")
+				break
+			}
       if(message.stance === "pro"){
             similarMessages.push(message)
             sendEmailPro(message)
@@ -58,8 +62,8 @@ function sendTweetPro(message){
   let base = 'https://twitter.com/intent/tweet?'
   let text = `@${message.rep.twitter}, ${proTweets[message.issue]}`
   let hashtags = 'speakup,democracy'
-  let via = 'speakup'
-  let url = `${base}text=${text}&hashtags=${hashtags}&via=${via}`
+  let via = ''
+  let url = `${base}text=${text}&hashtags=${hashtags}`
   window.open(url)
 }
 
