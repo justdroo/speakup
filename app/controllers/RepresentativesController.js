@@ -5,6 +5,7 @@ function representativesAdapter(){
   new Citizen(address)
   const searchURL = rootURL + address + "&key=" + APIKey
   event.preventDefault()
+
   return $.ajax({
     method: "GET",
     url: searchURL
@@ -13,6 +14,8 @@ function representativesAdapter(){
     event.preventDefault()
     initiateMessage(this)
   })
+  }).fail(function() {
+    alert("Please enter a valid U.S. address.")
   })
 }
 
