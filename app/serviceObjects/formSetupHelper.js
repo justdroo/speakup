@@ -25,8 +25,4 @@ function formSetup(){
   let x = issuesSelectFormat
   appendIssuesSelect(x)
 
-} //end formSetup
-
-// $(function() {
-//   formSetup();
-// })
+}

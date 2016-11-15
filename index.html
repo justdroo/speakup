@@ -3,19 +3,22 @@
   <head>
     <meta charset="utf-8">
     <title>SPEAKUP</title>
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
     <script src="handlebars.js"></script>
+
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="css/master.css">
     <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
 
     <script src="config.js"></script>
-    <script src="app/issueSelectHelper.js" charset="utf-8"></script>
+    <script src="app/serviceObjects/formSetupHelper.js" charset="utf-8"></script>
     <script src="app/models/message.js" charset="utf-8"></script>
+    <script src="app/models/representative.js"></script>
     <script src="app/models/citizen.js" charset="utf-8"></script>
     <script src="app/controllers/RepresentativesController.js"></script>
     <script src="app/controllers/MessagesController.js"></script>
-    <script src="app/models/representative.js"></script>
+    <script src="app/adapters/representativeAdapter.js"></script>
     <script src="index.js"></script>
   </head>
   <body>
