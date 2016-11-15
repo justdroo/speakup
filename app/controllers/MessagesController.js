@@ -1,82 +1,48 @@
-function initiateMessage(htmlElement){
+function createMessage(htmlElement){
 
 	let citizen = store.citizens[store.citizens.length-1]
 	let repArray = $.grep(store.representatives, function(e){ return e.id === parseInt(htmlElement.dataset.id); });
 	let rep = repArray[0]
+
 	let issue = $(`#${rep.id} [name=issues]`).val()
 	let stance = $(`#${rep.id} [name=stance]`).val()
-	let method = $(`#${rep.id} [name=method]`).val()
+	let sendClient = $(`#${rep.id} [name=method]`).val()
 	citizen.issues[issue] = stance
-	let message = new Message(citizen, rep, issue, stance, method)
+
+	let message = new Message(citizen, rep, issue, stance, sendClient)
+	messageRelay(message)
 }
 
-function activate(message){
-    message.rep.issues[message.issue] = message.rep.issues[message.issue] || {pro: [], against: []}
-    message.citizen.messages = [...message.citizen.messages, message]
-    let similarMessages = message.rep.issues[message.issue][message.stance] = message.rep.issues[message.issue][message.stance] || []
-
-    switch (message.method) {
-      case 'email':
-			if (message.rep.email == "No email listed") {
-				alert("Sorry! This representative doesn't have an email!")
-				break
-			}
-      if(message.stance === "pro"){
-            similarMessages.push(message)
-            sendEmailPro(message)
-            }
-      else {
-            similarMessages.push(message)
-            sendEmailAnti(message)
-        }
-        break
-      case 'tweet':
-			if (message.rep.twitter == "No Twitter listed") {
-				alert("Sorry! This representative doesn't have a Twitter!")
-				break
-			}
-      if(message.stance === "pro"){
-            similarMessages.push(message)
-            sendTweetPro(message)
-            }
-      else {
-            similarMessages.push(message)
-            sendTweetAnti(message)
-        }
-
-    }
-  }
-
-function sendEmailPro(message){
-  let repEmail = message.rep.email
-  let subject = message.issue
-  let body = proEmail[subject]
-  window.location.href = `mailto:${repEmail}?subject=${subject}&body=${body}`
+function messageRelay(message){
+	if (message.sendClient === "email") {
+		emailer(message)
+	} else if (message.sendClient === "tweet") {
+		tweeter(message)
+	} else {
+		alert("Please select email or twitter to send your message!")
+	}
 }
 
-function sendEmailAnti(message){
-  let repEmail = message.rep.email
-  let subject = message.issue
-  let body = antiEmail[subject]
-  window.location.href = `mailto:${repEmail}?subject=${subject}&body=${body}`
+function emailer(message){
+	if (message.rep.email == "No email listed") {
+		alert("Sorry! This representative doesn't have an email!")
+	} else {
+		let repEmail = message.rep.email
+		let subject = message.issue
+		let body = email[message.stance][subject]
+		window.location.href = `mailto:${repEmail}?subject=${subject}&body=${body}`
+	}
 }
 
-function sendTweetPro(message){
-
-  let base = 'https://twitter.com/intent/tweet?'
-  let text = `${message.rep.twitter}, ${proTweets[message.issue]}`
-  let hashtags = 'speakup,democracy'
-  let via = ''
-  let url = `${base}text=${text}&hashtags=${hashtags}`
-  window.open(url)
-}
-
-function sendTweetAnti(message){
-
-  let base = 'https://twitter.com/intent/tweet?'
-  let text = `${message.rep.twitter}, ${antiTweets[message.issue]}`
-  let hashtags = 'speakup,democracy'
-  let via = 'speakup'
-  let url = `${base}text=${text}&hashtags=${hashtags}&via=${via}`
-  window.open(url)
+function tweeter(message){
+	if (message.rep.twitter == "No Twitter listed") {
+		alert("Sorry! This representative doesn't have a Twitter!")
+	} else {
+		let base = 'https://twitter.com/intent/tweet?'
+		let text = `${message.rep.twitter}, ${tweets[message.stance][message.issue]}`
+		let hashtags = 'speakup,democracy'
+		let via = ''
+		let url = `${base}text=${text}&hashtags=${hashtags}`
+		window.open(url)
+	}
 }

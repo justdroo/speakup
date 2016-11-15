@@ -15,7 +15,7 @@ function representativesAdapter(){
   }).done(function(){
     $('.contact').on('submit', function(){
     event.preventDefault()
-    initiateMessage(this)
+    createMessage(this)
   })
   }).fail(function() {
     alert("Please enter a valid U.S. address.")
