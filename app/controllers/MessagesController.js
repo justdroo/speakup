@@ -16,27 +16,27 @@ function activate(message){
         }
     message.rep.issues[message.issue] = message.rep.issues[message.issue] || {pro: [], against: []}
     message.citizen.messages = [...message.citizen.messages, message]
-    let messagePosition = message.citizen.issues[message.issue]
-    let similarMessages = message.rep.issues[message.issue][messagePosition]
+    message.rep.issues[message.issue][message.stance] = message.rep.issues[message.issue][message.stance] || []
+    let similarMessages = message.rep.issues[message.issue][message.stance]
 
     switch (message.method) {
       case 'email':
-      if(messagePosition === "pro"){
-            // similarMessages = [...similarMessages, message]
+      if(message.stance === "pro"){
+            similarMessages.push(message)
             sendEmailPro(message)
             }
       else {
-            // similarMessages = [...similarMessages, message]
+            similarMessages.push(message)
             sendEmailAnti(message)
         }
         break
       case 'tweet':
-      if(messagePosition === "pro"){
-            // similarMessages = [...similarMessages, message]
+      if(message.stance === "pro"){
+            similarMessages.push(message)
             sendTweetPro(message)
             }
       else {
-            // similarMessages = [...similarMessages, message]
+            similarMessages.push(message)
             sendTweetAnti(message)
         }
 
@@ -47,14 +47,14 @@ function sendEmailPro(message){
   let repEmail = message.rep.email
   let subject = message.issue
   let body = proEmail[subject]
-  window.open(`mailto:${repEmail}?subject=${subject}&body=${body}`)
+  window.location.href = `mailto:${repEmail}?subject=${subject}&body=${body}`
 }
 
 function sendEmailAnti(message){
   let repEmail = message.rep.email
   let subject = message.issue
   let body = antiEmail[subject]
-  window.open(`mailto:${repEmail}?subject=${subject}&body=${body}`)
+  window.location.href = `mailto:${repEmail}?subject=${subject}&body=${body}`
 }
 
 function sendTweetPro(message){
