@@ -38,7 +38,15 @@ function parseRepresentatives(response) {
 }
 
 function renderPage(repList) {
+
   $('#results').empty().append(repList.map(function(rep) {
+    
+    if (rep.twitter == "No Twitter listed"){
+      var twitterLink = `<p>${rep.twitter}</p>`
+    } else {
+      var twitterLink = `<p><a href="https://twitter.com/${rep.twitter}" target="_blank" class="twitter">${rep.twitter}</a></p>`
+    }
+
     return `<div class="row rowFormat darkBox">
       <div class="col-lg-2 col-md-6 col-sm-6">
         <img src=${rep.photo} class="img-responsive img-circle">
@@ -62,7 +70,7 @@ function renderPage(repList) {
 
       <div class="col-lg-1">
         <h4>Twitter:</h4>
-        <p><a href="https://twitter.com/${rep.twitter}" target="_blank" class="twitter">${rep.twitter}</a></p>
+        ${twitterLink}
       </div>
 
       <div id ="${rep.id}" class="col-lg-2 leftSpaceL text-right">
