@@ -11,13 +11,9 @@ function initiateMessage(htmlElement){
 }
 
 function activate(message){
-    if(store.messages.indexOf(message) === -1){
-          alert("you've already contacted this representative about this issue!")
-        }
     message.rep.issues[message.issue] = message.rep.issues[message.issue] || {pro: [], against: []}
     message.citizen.messages = [...message.citizen.messages, message]
-    message.rep.issues[message.issue][message.stance] = message.rep.issues[message.issue][message.stance] || []
-    let similarMessages = message.rep.issues[message.issue][message.stance]
+    let similarMessages = message.rep.issues[message.issue][message.stance] = message.rep.issues[message.issue][message.stance] || []
 
     switch (message.method) {
       case 'email':
