@@ -25,7 +25,7 @@ function createRepresentative(office, official){
   if (official.channels) {
      var twitter = official.channels.filter(channel => channel.type === "Twitter")
      if (twitter.length > 0) {
-       rep.twitter = twitter[0].id
+       rep.twitter = "@" + twitter[0].id
      } else {
        rep.twitter = "No Twitter listed"
      }

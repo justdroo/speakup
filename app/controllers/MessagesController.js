@@ -31,6 +31,10 @@ function activate(message){
         }
         break
       case 'tweet':
+			if (message.rep.twitter == "No Twitter listed") {
+				alert("Sorry! This representative doesn't have a Twitter!")
+				break
+			}
       if(message.stance === "pro"){
             similarMessages.push(message)
             sendTweetPro(message)
@@ -60,7 +64,7 @@ function sendEmailAnti(message){
 function sendTweetPro(message){
 
   let base = 'https://twitter.com/intent/tweet?'
-  let text = `@${message.rep.twitter}, ${proTweets[message.issue]}`
+  let text = `${message.rep.twitter}, ${proTweets[message.issue]}`
   let hashtags = 'speakup,democracy'
   let via = ''
   let url = `${base}text=${text}&hashtags=${hashtags}`
@@ -70,7 +74,7 @@ function sendTweetPro(message){
 function sendTweetAnti(message){
 
   let base = 'https://twitter.com/intent/tweet?'
-  let text = `@${message.rep.twitter}, ${antiTweets[message.issue]}`
+  let text = `${message.rep.twitter}, ${antiTweets[message.issue]}`
   let hashtags = 'speakup,democracy'
   let via = 'speakup'
   let url = `${base}text=${text}&hashtags=${hashtags}&via=${via}`

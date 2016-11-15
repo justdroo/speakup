@@ -41,7 +41,7 @@ function renderPage(repList) {
   $('#results').empty().append(repList.map(function(rep) {
     return `<div class="row rowFormat darkBox">
       <div class="col-lg-2 col-md-6 col-sm-6">
-        <img src=${rep.photo} class="img-responsive img-rounded">
+        <img src=${rep.photo} class="img-responsive img-circle">
       </div>
 
       <div class="col-lg-2 col-md-6 col-sm-6">
@@ -62,7 +62,7 @@ function renderPage(repList) {
 
       <div class="col-lg-1">
         <h4>Twitter:</h4>
-        <p><a href="https://twitter.com/${rep.twitter}" target="_blank" class="twitter">@${rep.twitter}</a></p>
+        <p><a href="https://twitter.com/${rep.twitter}" target="_blank" class="twitter">${rep.twitter}</a></p>
       </div>
 
       <div id ="${rep.id}" class="col-lg-2 leftSpaceL text-right">
@@ -83,14 +83,14 @@ function renderPage(repList) {
           </div>
 
           <div class="form-group">
-            <select name="method">
+            <select name="method" class="btn btn-default dropdown-toggle">
               <option value="0">Select Tweet or Email</option>
               <option value="tweet">Tweet Them!</option>
               <option value="email">Email Them!</option>
             </select>
           </div>
 
-          <input type="submit" value="Submit" class="btn btn-success">
+          <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-bullhorn", aria-hidden="true"></span> Contact Now</button>
 
         </form>
       </div>
