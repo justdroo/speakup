@@ -1,5 +1,4 @@
 # Speakup
-Speakup is a JavaScript app which searches by address for local, state and federal government officials
 
 ![Speakup Application](http://nikym.org/img/speakup.gif "Speakup")
 
