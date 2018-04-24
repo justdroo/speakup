@@ -9,9 +9,9 @@ function renderPage(repList) {
     }
 
     return `<div class="row rowFormat darkBox">
-      <div class="col-lg-2 col-md-6 col-sm-6">
+      <figure class="col-lg-2 col-md-6 col-sm-6">
         <img src=${rep.photo} class="img-responsive img-circle">
-      </div>
+      </figure>
 
       <div class="col-lg-2 col-md-6 col-sm-6">
         <h4>${rep.title}</h4>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>SPEAKUP</title>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="handlebars.js"></script>
 
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
@@ -22,19 +22,19 @@
     <script src="index.js"></script>
   </head>
   <body>
-      <div class="row">
+      <header class="row">
         <div class="col-lg-12 text-center">
           <h1 class="topSpaceS">SpeakUp</h1>
           <h3>Find your representatives and let them know where you stand</h3>
         </div>
-      </div>
+      </header>
 
       <div class="row">
         <div class="col-lg-12 text-center topSpaceM" id="search">
           <form class="form-inline" action="#results">
             <div class="form-group">
               <label for="address">Enter your address: </label>
-              <input type="text" name="search" id="address">
+              <input type="text" name="search" id="address" required>
             </div>
             <br>
             <br>
@@ -44,17 +44,8 @@
       </div>
 
 
-      <div id="results" class="topSpaceL">
+      <main id="results" class="topSpaceL">
 
-      </div>
-      <script id="results-template" type="text/x-handlebars-template">
-        <ul>
-          {{#each office}}
-            <li>
-              <h2>{{name}}</h2>
-            </li>
-          {{/each}}
-        </ul>
-      </script>
+      </main>
   </body>
 </html>
