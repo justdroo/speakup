@@ -1,9 +1,9 @@
-class Results {
+const Results = class {
   constructor(props) {
-    this.repList = props.repList
+    this.repList = props
   }
 
-  render() => {
-    debugger
+  render() {
+    
   }
 }
