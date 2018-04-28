@@ -22,26 +22,25 @@
     <script src="index.js"></script>
   </head>
   <body>
-      <header class="row">
-        <div class="col-lg-12 text-center">
-          <h1 class="topSpaceS">SpeakUp</h1>
-          <h3>Find your representatives and let them know where you stand</h3>
-        </div>
+      <header>
+        <h1 class="flex-row center-content topSpaceS">SpeakUp</h1>
+        <h3 class="flex-row center-content">Find your representatives and let them know where you stand</h3>
       </header>
 
-      <div class="row">
-        <div class="col-lg-12 text-center topSpaceM" id="search">
-          <form class="form-inline" action="#results">
-            <div class="form-group">
-              <label for="address">Enter your address: </label>
-              <input type="text" name="search" id="address" required>
-            </div>
-            <br>
-            <br>
-            <input class="btn btn-primary btn-lg col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1" type="submit" value="Search" onclick="representativesAdapter()">
-          </form>
-        </div>
+
+      <div class="topSpaceM" id="search">
+        <form class="" action="#results">
+          <div class="flex-row center-content bottomSpaceM">
+            <label class="" for="address">Enter your address: </label>
+            <input class="" type="text" name="search" id="address" required>
+          </div>
+
+          <div class="flex-row center-content half">
+            <input class="flex-1" type="submit" value="Search" onclick="representativesAdapter()">
+          </div>
+        </form>
       </div>
+
 
 
       <main id="results" class="topSpaceL">

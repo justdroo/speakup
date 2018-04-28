@@ -7,6 +7,37 @@ label {
   font-size: 1.3em;
 }
 
+/* FORMATTING */
+.inline-flex-container {
+  display: inline-flex;
+}
+
+.flex-row {
+  display: flex;
+}
+
+.center-content {
+  justify-content: center;
+  align-content: center;
+}
+
+.center-item {
+  align-items: center;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.flex-1 {
+  flex-grow: 1;
+}
+
+.half {
+  width: 50%;
+  margin-left: 25%;
+}
+
 .twitter {
   font-weight:bold;
   color: rgba(163, 226, 255, 1);
