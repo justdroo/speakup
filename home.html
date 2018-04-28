@@ -7,6 +7,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="handlebars.js"></script>
 
+    </script>
+
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="css/master.css">
     <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
@@ -18,8 +20,8 @@
     <script src="app/models/citizen.js" charset="utf-8"></script>
     <script src="app/components/RepresentativesController.js"></script>
     <script src="app/components/MessagesController.js"></script>
-    <script src="app/adapters/representativeAdapter.js"></script>
-    <script src="index.js"></script>
+    <script src="app/adapters/CivicAdapter.js"></script>
+    <script type="text/javascript" src="app/app.js"></script>
   </head>
   <body>
       <header>
@@ -29,14 +31,14 @@
 
 
       <div class="topSpaceM" id="search">
-        <form class="" action="#results">
+        <form action="#results">
           <div class="flex-row center-content bottomSpaceM">
             <label class="" for="address">Enter your address: </label>
             <input class="" type="text" name="search" id="address" required>
           </div>
 
           <div class="flex-row center-content half">
-            <input class="flex-1" type="submit" value="Search" onclick="representativesAdapter()">
+            <input class="flex-1" type="submit" value="Search" onclick="renderRepresentatives()">
           </div>
         </form>
       </div>
