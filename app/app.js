@@ -1,7 +1,9 @@
-function renderRepresentatives(formValue){
-  address = document.getElementById('address').value
-  repList = CivicAdapter.newRequest(address)
+function renderRepresentatives(){
+  event.preventDefault
+  let address = document.getElementById('address').value
+  let request = new CivicAdapter(address)
+  let repList = request.getRepresentatives()
 
-  resultsDropdown = new Results(repList)
+  let resultsDropdown = new Results(repList)
   resultsDropdown.render()
 }

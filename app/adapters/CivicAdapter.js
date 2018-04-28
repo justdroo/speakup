@@ -37,3 +37,23 @@ function parseRepresentatives(response) {
   })
   renderPage(repList)
 }
+
+const CivicAdapter = class {
+  constructor(address){
+    this.address = address
+  }
+  getRepresentatives() {
+    var exampleResult = {
+      id: 1,
+      photo: "public/images/default.jpg",
+      title: "President Elect",
+      name: "Drew Nickerson",
+      party: "Democan",
+      phone: "555-555-1234",
+      email: "nope@no.noway",
+      twitter: "shitposter69"
+    }
+
+    return [exampleResult, exampleResult]
+  }
+}
