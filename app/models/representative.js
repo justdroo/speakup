@@ -4,33 +4,31 @@ const Representative = function(){
   let id = 0
 
   return class Representative {
-    constructor(name, title, party, email, phone, photo) {
+    constructor(office, official) {
       this.id = ++id
-      this.name = name
-      this.title = title
-      this.party = party
-      this.email = email || ["No email listed"]
-      this.phone = phone || ["No phone numbers listed"]
-      this.photo = photo || "public/images/default.jpg"
-      this.issues = {}
-      store.representatives.push(this)
+      this.name = official.name
+      this.title = office.name
+      this.party = official.party
+      this.email = official.email
+      this.phone = official.phones[0]
+      this.photo = official.photoUrl
+      this.channels = official.channels
     }
   }
 }()
 
-function createRepresentative(office, official){
-  const rep = new Representative(official.name, office.name, official.party, official.emails,
-    official.phones, official.photoUrl)
+function parseRepresentatives(response) {
+  const repList = []
 
-  if (official.channels) {
-     var twitter = official.channels.filter(channel => channel.type === "Twitter")
-     if (twitter.length > 0) {
-       rep.twitter = "@" + twitter[0].id
-     } else {
-       rep.twitter = "No Twitter listed"
-     }
-  } else {
-    rep.twitter = "No Twitter listed"
-  }
-   return rep
+  response.offices.map(office => {
+    const index = office.officialIndices
+    if (index.length > 1) {
+      index.map(i => {
+        repList.push(new Representative(office, response.officials[i]))
+      })
+    } else {
+      repList.push(new Representative(office, response.officials[index]))
+    }
+  })
+  return repList
 }
