@@ -50,7 +50,7 @@ const Card = class {
 
     let header = document.createElement('header')
       header.appendChild(document.createElement('h2').appendChild(document.createTextNode(this.title)))
-      header.classList.add('darkerBox', 'cardTitle', 'center-content')
+      header.classList.add('darkerBox', 'cardTitle', 'center-content', 'dropShadow')
 
     let additionalDetails = document.createElement('ul')
       let nameLine = document.createElement('li')
@@ -75,18 +75,5 @@ const Card = class {
 
     fragment.appendChild(section)
     return fragment
-    // `<section class="card">
-    //   <figure>
-    //     <img src="${photo}" alt="an american flag">
-    //   </figure>
-    //   <header>
-    //     ${title}
-    //   </header>
-    //   <ul>
-    //     <li>${name}</li>
-    //     <li>${party}</li>
-    //   </ul>
-    //   <button>Contact</button>
-    // </section>`
   }
 }
